@@ -315,7 +315,7 @@
 .list {
     margin: 3rem 0;
     list-style: none;
-    padding: 3rem;
+    padding:  3rem 0;
     border-top: var(--line);
     border-bottom: var(--line);
 
@@ -327,6 +327,49 @@
         margin-bottom: .7rem;
     }
 
+    &__item::before {
+        content: '';
+        display: inline-block;
+        height: 2rem;
+        width: 2rem;
+        margin-right: .7rem;
+
+
+        // для старых браузеров галочка боковая
+        //background-image: url(../img/chevron-thin-right.svg);
+        //background-size: cover;
+
+        // для новых браузерв
+        // использовать галочку как маску - т е смотреть сквозь нее на цветной фон 
+        background-color: var(--color-primary); // весь розовый бэкграунд скрывается 
+        mask-image:  url(../img/chevron-thin-right.svg); // его видно только через маску этой формы
+        mask-size: cover; // получается розовая галочка 
+
+    }
+
 }
 
 /// ////////////////////////////////////  RECOMMEND //////////////////////
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+    display: flex;
+    align-items: center;
+
+
+    &__count {
+        margin-right: auto; // чтобы текст забрал себе все свободное мессто в марджин райт и таким образом фотки сдвинулась до конца право
+    }
+
+    &__photo {
+        box-sizing: content-box; // если стоит бордер бокс то белая рамка вокруг фотки идет внутри и делает фотку меньше а надо чтобы рамка была вне самой фотки
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid white;
+
+        &:not(:last-child) {
+            margin-right: -1.5rem;
+        }
+    }
+}
