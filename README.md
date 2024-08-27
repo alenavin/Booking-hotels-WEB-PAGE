@@ -4,7 +4,7 @@
 
 ### Technology Stack: HTML, SASS
 
-### Download:
+### Download and run:
 * git clone https://github.com/alenavin/Booking-hotels-LANDING-PAGE
 * npm install
 * npm run
