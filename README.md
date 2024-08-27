@@ -11,4 +11,4 @@
 
 
 
-[Active link] (alenavin.github.io/Booking_hotels/)
+[Active link] (https://alenavin.github.io/Booking-hotels-LANDING-PAGE/)
