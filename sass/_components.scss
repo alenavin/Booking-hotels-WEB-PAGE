@@ -15,6 +15,12 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         font-family: inherit; // шрифт не наследуется по дефолту поэтому надо сделать доп инхерит 
         font-size: inherit;
@@ -127,11 +133,23 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin: 0;
+    }
+
     &__item {
         position: relative;
 
         &:not(:last-child) {
             margin-bottom: .5rem;
+            @media only screen and (max-width: $bp-medium) {
+                margin-bottom: 0;
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1;// чтобы каждый айтем занимал одинаковое растрояние;
         }
     }
 
@@ -172,6 +190,18 @@
         display: flex;
         align-items: center;
 
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
+
+        
+
     }
 
     &__icon {
@@ -179,6 +209,13 @@
         width: 1.75rem;
         margin-right: 2rem;
         fill: currentColor; // цвет родительского элемента или этого 
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: 7px;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -189,6 +226,11 @@
     text-align: center;
     padding: 2.5rem;
     color: var(--color-grey-light-4);
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
+    
 }
 
 ////////////////////////////////////  GALLERY //////////////////////
@@ -215,6 +257,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -250,17 +297,30 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
+        margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: .8rem;
         text-transform: uppercase;
         margin-top: -.32rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: .5rem;
+        }
     }
 }
 
@@ -360,7 +420,7 @@
 
 }
 
-/// ////////////////////////////////////  RECOMMEND //////////////////////
+///////////////////////////////////////  RECOMMEND //////////////////////
 .recommend {
     font-size: 1.3rem;
     color: var(--color-grey-dark-3);
@@ -372,6 +432,10 @@
         margin-right: auto; // чтобы текст забрал себе все свободное мессто в марджин райт и таким образом фотки сдвинулась до конца право
     }
 
+    &__friends {
+        display: flex;
+    }
+
     &__photo {
         box-sizing: content-box; // если стоит бордер бокс то белая рамка вокруг фотки идет внутри и делает фотку меньше а надо чтобы рамка была вне самой фотки
         height: 4rem;
@@ -380,10 +444,12 @@
         border: 3px solid white;
 
         &:not(:last-child) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
+
+///////////////////////////////////////  REVIEW //////////////////////
 
 .review {
     background-color: white;
@@ -395,6 +461,11 @@
 
     display: flex;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
     &__text {
         margin-bottom: 3rem;
@@ -456,6 +527,10 @@
     padding: 3.5rem 0;
     text-align: center;
 
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem;
+    }
+
     &__book-now {
         text-transform: uppercase;
         font-size: 2rem;
@@ -510,7 +585,4 @@
         outline: none;
         animation: pulsate 1s infinite;
     }
-       
-
-
 }
